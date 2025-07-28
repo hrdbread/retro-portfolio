@@ -1,0 +1,39 @@
+<section class="section">
+
+        {{#get "posts" include="tags" limit="all"}}
+
+          {{#foreach posts}}
+                  {{#has tag="Hero"}}
+
+
+
+                  <div class="columns is-vcentered banner" data-aos="fade-up" data-aos-delay="{{@number}}00" data-aos-offset="0">
+                    <div class="column is-half has-text-centered">
+                    <div class="banner-img" style="--banner-color: var(--{{slug}})">
+                      <div class="img-bg">
+                        <a href="{{url}}">  <img src="{{feature_image}}" alt=""></a>
+                      </div>
+                    </div>
+                    <div class="banner-tag" >
+                    <p><span>{{tags limit="1"}}</span></p>
+
+                    </div>
+                    </div>
+
+                  <div class="column is-4 is-offset-1 banner-txt">
+
+                    <h2 class="title">{{title}}</h2>
+                    <p class="reading-time"><b>{{reading_time}}</b></p>
+                    <p class="excerpt">{{excerpt}}</p>
+                    <a href="{{url}}" class="button is-primary is-outlined">Read more</a>
+
+                  </div>
+                </div>
+                  
+
+
+          {{/has}}
+          {{/foreach}}
+          {{/get}}
+          
+          </section>
