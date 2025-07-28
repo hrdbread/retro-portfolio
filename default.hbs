@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Styles'n'Scripts --}}
+    <!-- <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" /> -->
+    <link rel="stylesheet" href="{{asset "css/bulma.css"}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+      <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}}">
+
+
+<div class="container is-fluid">
+<div class="columns nav-start">
+<div class="column is-full has-text-centered">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+
+
+  <div class="navbar-brand">
+      <a href="{{@site.url}}" style="position: absolute; left: 50%; margin-left: -100px; margin-top: 0; padding: 0; height: 100%; display: flex; align-items: center;">
+            <img src="{{@site.logo}}" alt="{{@site.title}}" style="width: 200px; max-height: none;">
+      </a>
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+      </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+      {{navigation}}
+
+
+  </div>
+  </nav>
+</div>
+</div>
+
+
+
+<!-- Page content-->
+{{{body}}}
+
+
+
+
+  <!-- end grid contrainer -->
+
+
+
+
+        {{!-- The footer at the very bottom of the screen --}}
+        <footer class="footer is-fluid">
+          <div class="content has-text-centered">
+            <h3>Let’s connect</h3>
+            <p>Get in touch for any full-time opportunies or just to say hi!</p>
+            <p class="resume">
+              <a class="button is-primary is-inverted is-outlined" href="../downloads/Twerdochlib-Resume.pdf" download="Twerdochlib-Resume.pdf">Download my resume</a>
+            </p>
+
+            <ul>
+            <li><a href="https://www.linkedin.com/in/twerds/"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://hardbread.typeform.com/to/pkGhlW"><i class="far fa-paper-plane"></i></a></li>
+            <li><a href="https://twitter.com/hrdbread"><i class="fab fa-twitter-square"></i></a></li>
+            <li><a href="https://www.instagram.com/hrdbread/"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </footer>
+
+        <section class="copyright has-text-centered"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}Proudly published with <a class="icon-ghost" href="http://ghost.org">Ghost</a></section>
+    {{!-- The big email subscribe modal content --}}
+
+
+</div>
+</div>
+
+
+
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
+
+
+    {{!-- jQuery + Fitvids, which makes all video embeds responsive --}}
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="{{asset "built/jquery.fitvids.js"}}"></script>
+
+    {{#if pagination.pages}}
+    <script>
+        // maxPages is a global variable that is needed to determine
+        // if we need to load more pages for the infinitescroll, or if
+        // we reached the last page already.
+        var maxPages = parseInt('{{pagination.pages}}');
+    </script>
+    <script src="{{asset "built/infinitescroll.js"}}"></script>
+    {{/if}}
+
+    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+    {{{block "scripts"}}}
+
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
+
+    <script src="{{asset "js/app.js"}}"></script>
+    <script>
+      AOS.init();
+    </script>
+</div>
+</body>
+</html>

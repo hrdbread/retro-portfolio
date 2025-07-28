@@ -1,0 +1,43 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+
+<section class="hero is-small has-text-centered">
+<div class="hero-body">
+  <div class="container">
+    <h1 class="title">
+      {{title}}
+    </h1>
+
+</div>
+</section>
+
+<section>
+  <section>
+    <div class="container post-content content">
+      <div class="columns">
+
+      <div class="column is-10 is-offset-1" data-aos="fade-up" data-aos-delay="100" data-aos-offset="0">
+      {{content}}
+    </div>
+    </div>
+  </section>
+
+
+
+{{/post}}
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+$(function() {
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+});
+</script>
+{{/contentFor}}

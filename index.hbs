@@ -1,0 +1,35 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+
+{{!-- The main content area --}}
+
+<!-- Hero content: will be in the middle -->
+  <section class="hero is-medium has-text-centered" data-aos="fade-up">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Hey! I’m Stefan Twerdochlib
+      </h1>
+      <h6 class="subtitle">
+        (twer•dock•lib)
+      </h6>
+      <p>Currently Design Lead at Wolt. </br> Scaling up our design team & practice.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container has-text-centered content">
+    <h2 class="title" data-aos="fade-up" data-aos-delay="100" data-aos-offset="0">
+      Recent work
+    </h2>
+  </div>
+</section>
+
+{{> "hero"}}
+
+
+{{> "loop"}}

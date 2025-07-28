@@ -1,0 +1,39 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+<!-- Hero content: will be in the middle -->
+<section class="hero is-small has-text-centered">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Portfolio
+      </h1>
+
+  </div>
+</div>
+</section>
+
+<section>
+
+  <div class="container content">
+    <div class="columns is-multiline">
+
+
+{{#get "posts" include="tags"}}
+{{#foreach posts}}
+{{#has tag="portfolio"}}
+
+  {{> "post-card"}}
+
+{{/has}}
+{{/foreach}}
+{{/get}}
+
+</div>
+</div>
+
+</section>

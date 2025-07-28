@@ -1,0 +1,40 @@
+{{!< default}}
+{{!--
+This error template is used for all 404 errors, which might occur on your site.
+It's a good idea to keep this template as minimal as possible in terms of both file size and complexity.
+--}}
+
+
+
+<section class="hero is-small has-text-centered">
+<div class="hero-body">
+  <div class="container">
+    <section class="error-message">
+        <h1 class="error-code title">{{statusCode}}</h1>
+        <p class="error-description">Sorry but {{message}}</p>
+        <a class="error-link" href="{{@site.url}}">Go to the front page →</a>
+    </section>
+
+</div>
+</section>
+
+<section>
+
+<div class="container content">
+  <div class="columns is-multiline">
+
+
+{{#get "posts" include="tags" limit="3"}}
+{{#foreach posts}}
+{{#has tag="portfolio"}}
+
+{{> "post-card"}}
+
+{{/has}}
+{{/foreach}}
+{{/get}}
+
+</div>
+</div>
+
+</section>
