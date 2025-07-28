@@ -1,0 +1,18 @@
+
+{{#foreach navigation from="1" to="2"}}
+
+
+
+
+    <div class="navbar-start">
+      <a href="{{url absolute="true"}}" class="navbar-item">{{label}}</a>
+
+    </div>
+
+
+{{/foreach}}
+{{#foreach navigation from="3" to="4"}}
+    <div class="navbar-end">
+        <a href="{{url absolute="true"}}" class="navbar-item">{{label}}</a>
+    </div>
+{{/foreach}}
